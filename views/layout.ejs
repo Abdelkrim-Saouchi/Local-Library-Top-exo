@@ -26,6 +26,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-2">
+          <!-- <% include sidebar %> -->
           <ul class="sidebar-nav">
             <li>
               <a href="/catalog">Home</a>
@@ -61,28 +62,8 @@
             </li>
           </ul>
         </div>
-        <div class="col-sm-10">
-          <h1><%= title %></h1>
-          <p>
-            Welcome to <em>LocalLibrary</em>, a very basic Express website
-            developed as a tutorial example on the Mozilla Developer Network.
-          </p>
-
-          <h1>Dynamic content</h1>
-
-          <p>The library has the following record counts:</p>
-
-          <ul>
-            <li><strong>Books:</strong> <%= book_count %></li>
-            <li><strong>Copies:</strong> <%= book_instance_count %></li>
-            <li>
-              <strong>Copies available:</strong>
-              <%= book_instance_available_count %>
-            </li>
-            <li><strong>Authors:</strong> <%= author_count %></li>
-            <li><strong>Genres:</strong> <%= genre_count %></li>
-          </ul>
-        </div>
+        <!-- <div class="col-sm-10"><% include content %></div> -->
+        <div class="col-sm-10"><% include content %></div>
       </div>
     </div>
   </body>

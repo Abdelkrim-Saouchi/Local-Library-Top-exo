@@ -63,24 +63,18 @@
         </div>
         <div class="col-sm-10">
           <h1><%= title %></h1>
-          <p>
-            Welcome to <em>LocalLibrary</em>, a very basic Express website
-            developed as a tutorial example on the Mozilla Developer Network.
-          </p>
-
-          <h1>Dynamic content</h1>
-
-          <p>The library has the following record counts:</p>
 
           <ul>
-            <li><strong>Books:</strong> <%= book_count %></li>
-            <li><strong>Copies:</strong> <%= book_instance_count %></li>
+            <% if (author_list.length > 0) { %> <%
+            author_list.forEach(function(author) { %>
             <li>
-              <strong>Copies available:</strong>
-              <%= book_instance_available_count %>
+              <a href="<%= author.url %>"><%= author.name %></a>
+              (<%= author.date_of_birth_formatted %> - <%=
+              author.date_of_death_formatted %>)
             </li>
-            <li><strong>Authors:</strong> <%= author_count %></li>
-            <li><strong>Genres:</strong> <%= genre_count %></li>
+            <% }); %> <% } else { %>
+            <li>There are no authors.</li>
+            <% } %>
           </ul>
         </div>
       </div>
