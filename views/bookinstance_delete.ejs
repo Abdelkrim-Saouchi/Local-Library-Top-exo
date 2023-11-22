@@ -62,62 +62,22 @@
           </ul>
         </div>
         <div class="col-sm-10">
-          <h1><%= title %></h1>
+          <h1><%= title %>: <%= bookinstance._id %></h1>
 
+          <p>Do you really want to delete this bookinstance?</p>
           <form method="POST" action="">
             <div class="form-group">
-              <label for="first_name">First Name:</label>
               <input
-                id="first_name"
+                id="bookinstanceid"
                 class="form-control"
-                type="text"
-                placeholder="First name"
-                name="first_name"
+                type="hidden"
+                name="bookinstanceid"
                 required="true"
-                value="<%= (typeof author !== 'undefined' ? author.first_name : '') %>"
-              />
-
-              <label for="family_name">Family Name:</label>
-              <input
-                id="family_name"
-                class="form-control"
-                type="text"
-                placeholder="Family name"
-                name="family_name"
-                required="true"
-                value="<%= (typeof author !== 'undefined' ? author.family_name : '') %>"
+                value="<%=bookinstance._id%>"
               />
             </div>
-
-            <div class="form-group">
-              <label for="date_of_birth">Date of birth:</label>
-              <input
-                id="date_of_birth"
-                class="form-control"
-                type="date"
-                name="date_of_birth"
-                value="<%= (typeof author !== 'undefined' && author.date_of_birth ? author.date_of_birth.toISOString().split('T')[0] : '') %>"
-              />
-              <label for="date_of_death">Date of death:</label>
-              <input
-                id="date_of_death"
-                class="form-control"
-                type="date"
-                name="date_of_death"
-                value="<%= (typeof author !== 'undefined' && author.date_of_death ? author.date_of_death.toISOString().split('T')[0] : '') %>"
-              />
-            </div>
-
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit">Delete</button>
           </form>
-
-          <% if (errors.length > 0) { %>
-          <ul>
-            <% errors.forEach(function(error) { %>
-            <li><%= error.msg %></li>
-            <% }); %>
-          </ul>
-          <% } %>
         </div>
       </div>
     </div>
