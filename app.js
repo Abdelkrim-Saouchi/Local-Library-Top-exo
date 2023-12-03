@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -23,12 +24,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //set up mongoose connection
 mongoose.set('strictQuery', false);
-const mongoDb =
-  'mongodb+srv://krimouv1995:saouchiabdou2023@cluster0.okfcujw.mongodb.net/?retryWrites=true&w=majority';
+const mongoDbUrl = process.env.DB_URL;
 
 main().catch((err) => console.log(err));
 async function main() {
-  await mongoose.connect(mongoDb);
+  await mongoose.connect(mongoDbUrl);
 }
 
 app.use('/', indexRouter);
